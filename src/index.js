@@ -21,14 +21,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (val === 'cook') {
       li.innerHTML = `<div>${val}</div><button id="addButton" class="recipe">How about Christmas pie?</button><button class ="delete-button">X</button>`
+      const input = document.createElement('input')
+
       const recipe = li.querySelector('.recipe')
-      console.log('correct', recipe)
       recipe.addEventListener('click', function () {
         fetch('http://localhost:3000/recipes')
           .then((res) => res.json())
           .then((data) => {
             data.forEach((recipe) => {
-              div.innerHTML = `<button class ="delete-button">Delete Recipe</button>
+              input.addEventListener('change', function () {
+                const selectedDate = new Date(input.value)
+                const formattedDate = selectedDate.toLocaleDateString()
+                alert(`You selected: ${formattedDate}`)
+                console.log(formattedDate)
+              })
+
+              div.innerHTML = `<input type="date" id="datepicker">
+
+              <button class ="delete-button">Delete Recipe</button>
               <figure class="snip1578">
                 <img src="${recipe.img}"/>
                 <figcaption>
