@@ -72,7 +72,7 @@ li:hover {
   background-color: #dc3545;
   color: #fff;
   border: none;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   padding: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
