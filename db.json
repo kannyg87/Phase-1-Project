@@ -2,7 +2,7 @@
   "recipes": [
     {
       "name": "Christmas pie",
-      "url": "https://www.bbcgoodfood.com/recipes/2793/christmas-pie",
+      "img": "./Christmas_Pie_1125-380x360.png",
       "description": "Combine a few key Christmas flavours here to make a pie that both children and adults will adore",
       "author": "Mary Cadogan",
       "ingredients": [

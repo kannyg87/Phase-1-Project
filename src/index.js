@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const btn = document.getElementById('addButton')
   const ul = document.getElementById('taskList')
 
+  const div = document.createElement('div')
+
   btn.addEventListener('click', () => {
     let val = input.value
     const li = document.createElement('li')
@@ -20,14 +22,40 @@ document.addEventListener('DOMContentLoaded', function () {
     if (val === 'cook') {
       li.innerHTML = `<div>${val}</div><button id="addButton" class="recipe">How about Christmas pie?</button><button class ="delete-button">X</button>`
       const recipe = li.querySelector('.recipe')
-      console.log("correct",recipe)
-      const test = document.getElementsByClassName('.recipe')
-      console.log("test",test)
-      recipe.addEventListener("click", function () {
+      console.log('correct', recipe)
+      recipe.addEventListener('click', function () {
         fetch('http://localhost:3000/recipes')
-          .then(res => res.json())
-          .then((data) => { console.log(data) })
+          .then((res) => res.json())
+          .then((data) => {
+            data.forEach((recipe) => {
+              div.innerHTML = `<button class ="delete-button">Delete Recipe</button>
+              <figure class="snip1578">
+                <img src="${recipe.img}"/>
+                <figcaption>
+                  <h3>${recipe.name}</h3>
+                  <h5>${recipe.author}</h5>
+                  <h2>Ingredients:</h2>
+                  <ul>
+                    ${recipe.ingredients
+                      .map((ingredient) => `<li>${ingredient}</li>`)
+                      .join('')}
+                  </ul>
+                  <h2>Method:</h2>
+                  <ol>
+                    ${recipe.method.map((step) => `<li>${step}</li>`).join('')}
+                  </ol>        
+                </figcaption>
+              </figure>`
+              div.addEventListener('click', function (e) {
+                if (e.target.classList.contains('delete-button')) {
+                  e.target.parentElement.remove()
+                }
+              })
+            })
+          })
       })
+      const recipee = document.getElementById('recipe')
+      recipee.append(div)
     }
   })
 })

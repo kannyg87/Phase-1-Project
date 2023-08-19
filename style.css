@@ -81,3 +81,54 @@ li:hover {
 .delete-button:hover {
   background-color: #c82333;
 }
+/* Styling for recipe cards */
+.figure-class {
+  position: relative;
+  width: 300px;
+  margin: 20px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.figure-class img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+.figure-class figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.figure-class h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+}
+
+.figure-class h5 {
+  margin: 5px 0;
+  padding: 0;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+/* Hover effect to show the caption and elevate the card */
+.figure-class:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.figure-class:hover figcaption {
+  opacity: 1;
+}
