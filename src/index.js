@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
                   </figcaption>
                 </figure>`
               }
-              div.addEventListener('click', function (e) {
+              div.addEventListener('keydown', function (e) {
                 if (e.target.classList.contains('delete-button')) {
                   e.target.parentElement.remove()
                 }
